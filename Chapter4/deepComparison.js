@@ -11,6 +11,7 @@
 
 //DeepEqual function
 function deepEqual(obj1, obj2) {
+  
   //Variables to count number of properties in each object
   var propertiesObj1 = 0;
   var propertiesObj2 = 0;
@@ -32,23 +33,17 @@ function deepEqual(obj1, obj2) {
     propertiesObj1 += 1;
   }
   
-  // for(var prop in obj2) {
-  //   propertiesObj2 += 1;
-  //   if(!(prop in obj1) || !deepEqual(obj1[prop], b[prop])
-  //     return false;
-  // }
+  //Use for in loop to compare obj2 to obj2
+  //Comparies property count and the value of the properties
+  //using a recursive call to deepEqual
   for (var prop in b) {
     propertiesObj2 += 1;
     if (!(prop in obj1) || !deepEqual(obj1[prop], obj2[prop]))
       return false;   
   }
+
+  //Return true if a false was never triggered
   return true;
 }
-
-var a = {a: 1, b: 2, c: 3};
-var b = {a: 1, b: 2, c: 3};
-console.log(deepEqual(a, b));
-
-
 
 
